@@ -62,10 +62,11 @@ let MainFunction = function(){
         
     this.cgpa=function (bangla,english,math,science,social,religion){
     
-        let cgpa=(bangla + english + math+science+social+religion)/6;
+        // let cgpa=( parent(bangla)+ parent(english)+ parent(math)+ parent(science) + parent(social) + parent(religion))/6;
+        let cgpa=( bangla+ english+math+ science +social + religion)/6;
     
         if(bangla==0 || english ==0 || math==0 || science==0 || social==0  || religion==0){
-            return "Your are failed";
+            return "You are failed";
         }
         else{
           return `Your cgpa ${cgpa} & CGPA =${lead_name.cgpaGrade(cgpa)}`;  //lead_name is variable name of  mainfunction(must be used)
