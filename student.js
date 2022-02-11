@@ -28,14 +28,12 @@ student_form.addEventListener('submit',function(e){
         alert('all Field are required')
     }
     else{
-
-
-
+    
         let student_data=[];
-
         if(dataGet("student_result")){
             student_data=dataGet("student_result");
         }
+
         student_data.push({
             name : name.value,
             roll : roll.value,
@@ -47,10 +45,7 @@ student_form.addEventListener('submit',function(e){
             math : math.value,
             science : science.value,
             social : social.value,
-            religion : religion.value,
-    
-    
-    
+            religion : religion.value
         })
         datasend('student_result',student_data)
     
@@ -67,14 +62,9 @@ student_form.addEventListener('submit',function(e){
         science=student_form.querySelector("input[placeholder='Science']").value='';
         social=student_form.querySelector("input[placeholder='Social Science']").value='';
         religion=student_form.querySelector("input[placeholder='Social Science']").value='';
-
-
-
     }
-
-
-    
 })
+
 allData()
 function allData(){
 
@@ -99,11 +89,12 @@ function allData(){
           <button onclick="studentdel(${index})" class="btn btn-danger btn-sm">Delete</button>
         </td>
       </tr>
-        
         `
     })
     studnet_doc.innerHTML=data;
 }
+
+
 
 function studentdel(index_number){
 
@@ -118,9 +109,9 @@ function studentdel(index_number){
     else{
         return false;
     }
-
 }
 const student_result_data=document.querySelector('.student_result_data')
+
 function studentresult(result){
     let all_result=dataGet('student_result')
 
@@ -151,45 +142,47 @@ function studentresult(result){
                   <td>${all_result[result].bangla}</td>
                   <td>${lead_name.grade(all_result[result].bangla)}</td>
                   <td>${lead_name.gpa(all_result[result].bangla)}</td>
-                  <td rowspan="6">${lead_name.cgpa(lead_name.gpa(all_result[result].bangla),lead_name.gpa(all_result[result].english),lead_name.gpa(all_result[result].math),lead_name.gpa(all_result[result].science),lead_name.gpa(all_result[result].social),lead_name.gpa(all_result[result].religion))}</td>
+                  <td rowspan="6">4.00</td>
                   <td rowspan="6">A+</td>
                 </tr>
                 <tr>
                   <td>English</td>
-                  <td>80</td>
-                  <td>A+</td>
-                  <td>5.00</td>
+                  <td>${all_result[result].english}</td>
+                  <td>${lead_name.grade(all_result[result].english)}</td>
+                  <td>${lead_name.gpa(all_result[result].english)}</td>
                 </tr>
                 <tr>
                   <td>Math</td>
-                  <td>80</td>
-                  <td>A+</td>
-                  <td>5.00</td>
+                  <td>${all_result[result].math}</td>
+                  <td>${lead_name.grade(all_result[result].math)}</td>
+                  <td>${lead_name.gpa(all_result[result].math)}</td>
                 </tr>
                 <tr>
                   <td>Science</td>
-                  <td>80</td>
-                  <td>A+</td>
-                  <td>5.00</td>
+                  <td>${all_result[result].science}</td>
+                  <td>${lead_name.grade(all_result[result].science)}</td>
+                  <td>${lead_name.gpa(all_result[result].science)}</td>
                 </tr>
                 <tr>
                   <td>Social Science</td>
-                  <td>80</td>
-                  <td>A+</td>
-                  <td>5.00</td>
+                  <td>${all_result[result].social}</td>
+                  <td>${lead_name.grade(all_result[result].social)}</td>
+                  <td>${lead_name.gpa(all_result[result].social)}</td>
                 </tr>
                 <tr>
                   <td>Religion</td>
-                  <td>80</td>
-                  <td>A+</td>
-                  <td>5.00</td>
+                  <td>${all_result[result].religion}</td>
+                  <td>${lead_name.grade(all_result[result].religion)}</td>
+                  <td>${lead_name.gpa(all_result[result].religion)}</td>
                 </tr>
               </tbody>
             </table>
-
-            
-    
     `
-    console.log(lead_name.cgpa(lead_name.gpa(all_result[result].bangla),lead_name.gpa(all_result[result].english),lead_name.gpa(all_result[result].math),lead_name.gpa(all_result[result].science),lead_name.gpa(all_result[result].social),lead_name.gpa(all_result[result].religion)));
     student_result_data.innerHTML=student_result;
+    
 }
+
+
+/**
+ *                   <td rowspan="6">${lead_name.cgpa(lead_name.gpa(all_result[result].bangla),lead_name.gpa(all_result[result].english),lead_name.gpa(all_result[result].math),lead_name.gpa(all_result[result].science),lead_name.gpa(all_result[result].social),lead_name.gpa(all_result[result].religion))}</td>
+ */
